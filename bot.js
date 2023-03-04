@@ -15,20 +15,16 @@ const path = require("path");
 const events = require("./lib/event");
 const got = require("got");
 const {regnewuser, sudoBan, cloudspace} = require("./lib/alfabase");
-const config = require("./config");
 const { PluginDB } = require("./lib/database/plugins");
 const Greetings = require("./lib/Greetings");
 let { toBuffer } = require("qrcode");
-const { HANDLERS, WORK_TYPE, SUDO, DATABASE } = require("./config");
+const { HANDLERS, WORK_TYPE, SUDO, DATABASE, LOGS } = require("./database/settings");
 let jsox = require("./database/settings.js")
 
 const port = process.env.PORT||3030
 const express = require("express");
 const app = express();
-let session = require("./session.json");
-let ibm = (session.creds.me.id).split(":")[0]
 
-let SUDOZi = jsox.SUDO
 
 
 const store = makeInMemoryStore({
@@ -144,7 +140,7 @@ async function AlienAlfa() {
           if (msg.body[1] && msg.body[1] == " ")
             msg.body = msg.body[0] + msg.body.slice(2);
           let text_msg = msg.body;
-          if (text_msg && config.LOGS)
+          if (text_msg && LOGS)
             console.log(
               `At : ${
                 msg.from.endsWith("@g.us")
@@ -156,7 +152,7 @@ async function AlienAlfa() {
           events.commands.map(async (command) => {
             if (
               command.fromMe &&
-              !SUDOZi.split(",").includes(
+              !SUDO.split(",").includes(
                 msg.sender.split("@")[0] || !msg.isSelf
               )
             )

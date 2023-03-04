@@ -34,22 +34,22 @@ command({
     if (!match) {
       filtreler = await getFilter(message.jid);
       if (filtreler === false) {
-        await message.reply(Lang.NO_FILTER);
+        await message.treply(Lang.NO_FILTER);
       } else {
         var mesaj = Lang.FILTERS + "\n\n";
         filtreler.map(
           (filter) => (mesaj += `✒ ${filter.dataValues.pattern}\n`)
         );
         mesaj += tiny("use : .filter keyword:message\nto set a filter");
-        await message.reply(mesaj);
+        await message.treply(mesaj);
       }
     } else if (!text || !msg) {
-      return await message.reply(
+      return await message.treply(
         "```use : .filter keyword:message\nto set a filter```"
       );
     } else {
       await setFilter(message.jid, text, msg, true);
-      return await message.reply(`_Sucessfully set filter for ${text}_`);
+      return await message.treply(`_Sucessfully set filter for ${text}_`);
     }
   }
 );
@@ -61,14 +61,14 @@ command({
     usage: '.stop "hello"',
     type: "group",
   }, async (message, match, m) => {
-    if (!match) return await message.reply("\n*Example:* ```.stop hello```");
+    if (!match) return await message.treply("\n*Example:* ```.stop hello```");
 
     del = await deleteFilter(message.jid, match);
 
     if (!del) {
-      await message.reply(Lang.ALREADY_NO_FILTER);
+      await message.treply(Lang.ALREADY_NO_FILTER);
     } else {
-      await message.reply(`_Filter ${match} deleted_`);
+      await message.treply(`_Filter ${match} deleted_`);
     }
   }
 );
@@ -84,7 +84,7 @@ command({ on: "text", fromMe: isPrivate }, async (message, match, m) => {
       "gm"
     );
     if (pattern.test(match)) {
-      await message.reply(filter.dataValues.text, {
+      await message.treply(filter.dataValues.text, {
         quoted: message,
       });
     }

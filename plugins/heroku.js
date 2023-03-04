@@ -7,7 +7,7 @@ const simpleGit = require("simple-git");
 const { secondsToDHMS } = require("../lib");
 const git = simpleGit();
 const exec = require("child_process").exec;
-const config = require('../config')
+const config = require('../database/settings')
 
   
 command( 
@@ -324,7 +324,7 @@ command(
       if (commits.total === 0) {
         return await message.sendMessage("_Already on latest version_");
       } else {
-        await message.reply("_Updating_");
+        await message.treply("_Updating_");
 
         try {
           var app = await heroku.get("/apps/" + process.env.HEROKU_APP_NAME);

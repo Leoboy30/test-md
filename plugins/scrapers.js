@@ -195,7 +195,7 @@ command({
       `http://www.omdbapi.com/?apikey=742b2d09&t=${match}&plot=full`
     );
 
-    if (movie.Response !== "True") return await message.reply("*Not found*");
+    if (movie.Response !== "True") return await message.treply("*Not found*");
     let msg = "";
     const url = movie.Poster;
     delete movie.Poster;

@@ -41,10 +41,10 @@ command({
   },
   async (message, match, msg) => {
     if (!message.reply_message)
-      return await message.reply("_Reply to a audio or video_");
+      return await message.treply("_Reply to a audio or video_");
     let buff = await msg.quoted.download();
     let data = await findMusic(buff);
-    if (!data.status) return message.reply(data);
+    if (!data.status) return message.treply(data);
 
     let buttonMessage = {
       text: `Title : ${data.title}            
@@ -80,19 +80,6 @@ Release : ${data.release_date}`,
 );
 
 command({
-    pattern: "vv",
-    fromMe: isPrivate,
-    desc: "Forwards The View once messsage",
-    type: "tool",
-  },
-  async (message, match, m) => {
-    if (message.reply_message.type !== "view_once")return await message.reply("_Not a View Once_");
-    let buff = await m.quoted.download();
-    return await message.sendFile(buff);
-  }
-);
-
-command({
     pattern: "removebg",
     fromMe: isPrivate,
     desc: "removes background of an image",
@@ -101,16 +88,16 @@ command({
   async (message, match, m) => {
     
     if (!message.reply_message || !message.reply_message.image)
-      return await message.reply("_Reply to a photo_");
+      return await message.treply("_Reply to a photo_");
       let apirnobg = ['q61faXzzR5zNU6cvcrwtUkRU','S258diZhcuFJooAtHTaPEn4T','5LjfCVAp4vVNYiTjq9mXJWHF','aT7ibfUsGSwFyjaPZ9eoJc61','BY63t7Vx2tS68YZFY6AJ4HHF','5Gdq1sSWSeyZzPMHqz7ENfi8','86h6d6u4AXrst4BVMD9dzdGZ','xp8pSDavAgfE5XScqXo9UKHF','dWbCoCb3TacCP93imNEcPxcL']
 	    let apinobg = apirnobg[Math.floor(Math.random() * apirnobg.length)]
 
    // if (RMBG_KEY === false)
-   //   return await message.reply(
+   //   return await message.treply(
    //     `_Get a new api key from https://www.remove.bg/api_\n_set it via_\n_setvar RMBG_KEY: api key_`
    //   );
 
-    await message.reply("_Removing Background_");
+    await message.treply("_Removing Background_");
     var location = await message.reply_message.downloadMediaMessage();
 
     var form = new FormData();
@@ -139,10 +126,10 @@ command({
     type: "tool",
   }, async (message, match, m) => {
     match = match || message.reply_message.text;
-    if (!match) return await message.reply("_Reply to a url or enter a url_");
-    if (!isUrl(match)) return await message.reply("_Not a url_");
+    if (!match) return await message.treply("_Reply to a url or enter a url_");
+    if (!isUrl(match)) return await message.treply("_Not a url_");
     let short = await Bitly(match);
-    return await message.reply(short.link);
+    return await message.treply(short.link);
   }
 );
 
@@ -153,7 +140,7 @@ command({
     type: "tool",
   }, async (message, match, m) => {
     match = match || message.reply_message.text;
-    if (!match || !isUrl(match)) return await message.reply("_Enter a URL_");
+    if (!match || !isUrl(match)) return await message.treply("_Enter a URL_");
 
     let url = new URL(match);
     await message.sendFromUrl(

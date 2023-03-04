@@ -716,7 +716,7 @@ command({
     if (!message.reply_message)
       return await message.sendMessage("*Need Audio!*");
     if (!match) {
-      return await message.reply("Need a volume level");
+      return await message.treply("Need a volume level");
     } else {
       await message.sendMessage("```Editing..```");
       var location = await message.reply_message.downloadMediaMessage();

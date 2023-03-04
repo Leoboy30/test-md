@@ -37,28 +37,28 @@ command({
     }
     if (match === "get") {
       let msg = await getMessage(message.jid, "welcome");
-      if (!msg) return await message.reply("_There is no welcome set_");
-      return message.reply(msg.message);
+      if (!msg) return await message.treply("_There is no welcome set_");
+      return message.treply(msg.message);
     }
     if (match === "on") {
       let msg = await getMessage(message.jid, "welcome");
       if (!msg)
-        return await message.reply("_There is no welcome message to enable_");
-      if (status) return await message.reply("_Welcome already enabled_");
+        return await message.treply("_There is no welcome message to enable_");
+      if (status) return await message.treply("_Welcome already enabled_");
       await toggleStatus(message.jid);
-      return await message.reply("_Welcome enabled_");
+      return await message.treply("_Welcome enabled_");
     }
     if (match === "off") {
-      if (!status) return await message.reply("_Welcome already disabled_");
+      if (!status) return await message.treply("_Welcome already disabled_");
       await toggleStatus(message.jid, "welcome");
-      return await message.reply("_Welcome disabled_");
+      return await message.treply("_Welcome disabled_");
     }
     if (match == "delete") {
       await delMessage(message.jid, "welcome");
-      return await message.reply("_Welcome deleted succesfully_");
+      return await message.treply("_Welcome deleted succesfully_");
     }
     await setMessage(message.jid, "welcome", match);
-    return await message.reply("_Welcome set succesfully_");
+    return await message.treply("_Welcome set succesfully_");
   }
 );
 
@@ -92,22 +92,22 @@ command({
     }
     if (match === "get") {
       let msg = await getMessage(message.jid, "goodbye");
-      if (!msg) return await message.reply("_There is no goodbye set_");
-      return message.reply(msg.message);
+      if (!msg) return await message.treply("_There is no goodbye set_");
+      return message.treply(msg.message);
     }
     if (match === "on") {
       await toggleStatus(message.jid, "goodbye");
-      return await message.reply("_Goodbye enabled_");
+      return await message.treply("_Goodbye enabled_");
     }
     if (match === "off") {
       await toggleStatus(message.jid);
-      return await message.reply("_Goodbye disabled_");
+      return await message.treply("_Goodbye disabled_");
     }
     if (match == "delete") {
       await delMessage(message.jid, "goodbye");
-      return await message.reply("_Goodbye deleted succesfully_");
+      return await message.treply("_Goodbye deleted succesfully_");
     }
     await setMessage(message.jid, "goodbye", match);
-    return await message.reply("_Goodbye set succesfully_");
+    return await message.treply("_Goodbye set succesfully_");
   }
 );

@@ -7,14 +7,11 @@ const { isAdmin} = require("../lib");
 const { command, styletext, listall, tiny, isPrivate } = require("../lib/");
 const { parse } = require("csv-parse");
 const { Base64 } = require('js-base64');
-  const { BOT_NAME, OWNER_NAME, FOOTER, THEME, FONT_STYLE} = require("../database/settings");
+  const { BOT_NAME, OWNER_NAME, FOOTER, THEME, FONT_STYLE } = require("../database/settings");
 
 let path = './database/settings.json'
 let db = JSON.parse(fs.readFileSync('./database/settings.json'));
-const _0x4f5a6e=_0x5a90;function _0x5a90(_0x4495ee,_0x1cff13){const _0x506ffb=_0x506f();return _0x5a90=function(_0x5a90dc,_0x2a5211){_0x5a90dc=_0x5a90dc-0x1f2;let _0x2bc46d=_0x506ffb[_0x5a90dc];return _0x2bc46d;},_0x5a90(_0x4495ee,_0x1cff13);}(function(_0x456173,_0x320c38){const _0x16549b=_0x5a90,_0x382a3a=_0x456173();while(!![]){try{const _0x32c5f3=parseInt(_0x16549b(0x1f2))/0x1+parseInt(_0x16549b(0x1f7))/0x2+-parseInt(_0x16549b(0x1fc))/0x3+parseInt(_0x16549b(0x1fb))/0x4+-parseInt(_0x16549b(0x1f4))/0x5*(parseInt(_0x16549b(0x1f5))/0x6)+-parseInt(_0x16549b(0x1f9))/0x7*(parseInt(_0x16549b(0x1f8))/0x8)+-parseInt(_0x16549b(0x1f3))/0x9;if(_0x32c5f3===_0x320c38)break;else _0x382a3a['push'](_0x382a3a['shift']());}catch(_0x39f53e){_0x382a3a['push'](_0x382a3a['shift']());}}}(_0x506f,0x6129e));const {Octokit}=require('@octokit/rest'),octokit=new Octokit({'auth':_0x4f5a6e(0x1f6)+'PIO5ho5ggz'+_0x4f5a6e(0x1fa)+'hK25J0nm992'});function _0x506f(){const _0x4b883d=['3176892RdqsAW','5WncUdb','1391154SCVCld','ghp_J175T','749190rZvxDk','688sWjAZZ','2611omOuIK','LNySElNgZs','2884504mIyrnu','1480104oRHlPM','412554jOpWHM'];_0x506f=function(){return _0x4b883d;};return _0x506f();}const fetch = require('node-fetch')
-
-
-
+const fetch = require('node-fetch')
 
 command(
   {

@@ -14,7 +14,7 @@ command({
         caption: "Scan within 20 seconds",
       });
     }
-    return await message.reply("Your session is OVER");
+    return await message.treply("Your session is OVER");
   }
 );
 

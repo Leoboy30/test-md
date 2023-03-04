@@ -56,11 +56,11 @@ command({
     type: "downloader",
   }, async (message, match, m) => {
     match = match || message.reply_message.text;
-    if (!match) return await message.reply("_Enter Username_");
+    if (!match) return await message.treply("_Enter Username_");
     let response = await getJson(
       `https://hermit-network.herokuapp.com/api/story?username=${match}&key=adithyan`
     );
-    if(!response.status) return message.reply('Not Found')
+    if(!response.status) return message.treply('Not Found')
     for (let i of response.result) {
       message.sendFromUrl(i);
     }

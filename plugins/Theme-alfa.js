@@ -42,7 +42,7 @@ if( INTERNAL_MENU === 'active'){
 
       for (let i of events.commands) {
         if (i.pattern.test(message.prefix + match))
-          message.reply(`
+          message.treply(`
   ╭════〘 *Command Info* 〙════⊷❍
   ┃✧╭─────────────────
   ┃ \`\`\`Command : ${message.prefix}${match.trim()}\`\`\`
@@ -524,7 +524,7 @@ command({
   if (match) {
     for (let i of events.commands) {
       if (i.pattern.test(message.prefix + match))
-        message.reply(`
+        message.treply(`
 ╭════〘 *Command Info* 〙════⊷❍
 ┃✧╭─────────────────
 ┃ \`\`\`Command : ${message.prefix}${match.trim()}\`\`\`
@@ -761,7 +761,7 @@ if(THEME === "xasena"){
       if (match) {
         for (let i of events.commands) {
           if (i.pattern.test(message.prefix + match))
-            message.reply(
+            message.treply(
               `\`\`\`Command : ${message.prefix}${match.trim()}
   Description : ${i.desc}\`\`\``
             );
@@ -879,7 +879,7 @@ if(THEME === "xasena"){
           if (desc) menu += `├ ${tiny("use : " + desc)}\n`;
         });
         menu += `╰──────────────────────────`;
-        return await message.reply(menu);
+        return await message.treply(menu);
   
       
     }

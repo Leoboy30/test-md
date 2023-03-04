@@ -823,7 +823,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -844,7 +844,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -865,7 +865,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=hii&bottom=${encodeURIComponent(
@@ -886,7 +886,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -907,7 +907,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -928,7 +928,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -949,7 +949,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=uddikaputo&bottom=${encodeURIComponent(
@@ -970,7 +970,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -991,7 +991,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -1012,7 +1012,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -1033,7 +1033,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -1054,7 +1054,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -1075,7 +1075,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -1096,7 +1096,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -1117,7 +1117,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -1138,7 +1138,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -1159,7 +1159,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -1180,7 +1180,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -1201,7 +1201,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -1222,7 +1222,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(
@@ -1243,7 +1243,7 @@ command({
     dontAddCommandList: false,
     type: "edit",
   }, async (message, match, m) => {
-    if (!match) return await message.reply(ll);
+    if (!match) return await message.treply(ll);
 
     var ttinullimage = await getBuffer(
       `https://docs-jojo.herokuapp.com/api/meme-gen?top=%20&bottom=${encodeURIComponent(

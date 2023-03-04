@@ -8,7 +8,7 @@ command({
   async (message, match, m) => {
          let isadmin = await isAdmin(message.jid, message.user, message.client);
     
-        if(!isadmin) return message.reply('This command is only for Group Admin and my owner.')
+        if(!isadmin) return message.treply('This command is only for Group Admin and my owner.')
          this.game = this.game ? this.game : false
          if (
         Object.values(this.game).find(
@@ -17,9 +17,9 @@ command({
         )
       ) {
         delete this.game
-        return message.reply(`_Successfully Deleted running TicTacToe game._`);
+        return message.treply(`_Successfully Deleted running TicTacToe game._`);
         } else {
-              return message.reply(`No TicTacToe game🎮 is running.`)
+              return message.treply(`No TicTacToe game🎮 is running.`)
                     
         }
   })
@@ -42,7 +42,7 @@ command({
             [room.game.playerX, room.game.playerO].includes(m.sender)
         )
       )
-        return message.reply("_You're still in the game_");
+        return message.treply("_You're still in the game_");
       let room = Object.values(this.game).find(
         (room) =>
           room.state === "WAITING" && (match ? room.name === match : true)
@@ -91,7 +91,7 @@ Current turn: @${room.game.currentTurn.split("@")[0]}
           state: "WAITING",
         };
         if (match) room.name = match;
-        message.reply("_Waiting for partner_ ");
+        message.treply("_Waiting for partner_ ");
         this.game[room.id] = room;
       }
     }
@@ -133,7 +133,7 @@ command({
             parseInt(match) - 1
           ))
       ) {
-        message.reply(
+        message.treply(
           {
             "-3": "The game is over",
             "-2": "Invalid",

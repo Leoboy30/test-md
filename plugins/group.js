@@ -11,14 +11,14 @@ command({
 
 }, async (message, match, m) => {
     if (!message.isGroup)
-      return await message.reply("_This command is for groups_");
+      return await message.treply("_This command is for groups_");
     match = match || message.reply_message.jid;
-    if (!match) return await message.reply("_Mention user to add");
+    if (!match) return await message.treply("_Mention user to add");
     let isadmin = await isAdmin(message.jid, message.user, message.client);
-    if (!isadmin) return await message.reply("_I'm not admin_");
+    if (!isadmin) return await message.treply("_I'm not admin_");
     let jid = parsedJid(match);
     await message.add(jid);
-    return await message.reply(`@${jid[0].split("@")[0]} added`, {
+    return await message.treply(`@${jid[0].split("@")[0]} added`, {
       mentions: jid,
     });
   }
@@ -35,14 +35,14 @@ command({
 },
 async (message, match, m) => {
     if (!message.isGroup)
-      return await message.reply("_This command is for groups_");
+      return await message.treply("_This command is for groups_");
     match = match || message.reply_message.jid;
-    if (!match) return await message.reply("_Mention user to add");
+    if (!match) return await message.treply("_Mention user to add");
     let isadmin = await isAdmin(message.jid, message.user, message.client);
-    if (!isadmin) return await message.reply("_I'm not admin_");
+    if (!isadmin) return await message.treply("_I'm not admin_");
     let jid = parsedJid(match);
     let relay = await message.unban(jid, message);
-    return await message.reply(relay, {
+    return await message.treply(relay, {
       mentions: jid,
     });
   }
@@ -57,14 +57,14 @@ async (message, match, m) => {
     
     }, async (message, match, m) => {
     if (!message.isGroup)
-      return await message.reply("_This command is for groups_");
+      return await message.treply("_This command is for groups_");
     match = match || message.reply_message.jid;
-    if (!match) return await message.reply("_Mention user to kick");
+    if (!match) return await message.treply("_Mention user to kick");
     let isadmin = await isAdmin(message.jid, message.user, message.client);
-    if (!isadmin) return await message.reply("_I'm not admin_");
+    if (!isadmin) return await message.treply("_I'm not admin_");
     let jid = parsedJid(match);
     await message.kick(jid);
-    return await message.reply(`@${jid[0].split("@")[0]} kicked`, {
+    return await message.treply(`@${jid[0].split("@")[0]} kicked`, {
       mentions: jid,
     });
   }
@@ -80,14 +80,14 @@ command({
 
 },
 async (message, match, m) => {
-  if (!message.isGroup) return await message.reply("_This command is for groups_");
+  if (!message.isGroup) return await message.treply("_This command is for groups_");
   match = match || message.reply_message.jid;
-  if (!match) return await message.reply("_Mention user to kick");
+  if (!match) return await message.treply("_Mention user to kick");
   let isadmin = await isAdmin(message.jid, message.user, message.client);
-  if (!isadmin) return await message.reply("_I'm not admin_");
+  if (!isadmin) return await message.treply("_I'm not admin_");
   let jid = parsedJid(match);
   let relay = await message.ban(jid, message);
-  return await message.reply(relay, {
+  return await message.treply(relay, {
     mentions: jid,
   });
 }
@@ -102,14 +102,14 @@ async (message, match, m) => {
     
     }, async (message, match, m) => {
     if (!message.isGroup)
-      return await message.reply("_This command is for groups_");
+      return await message.treply("_This command is for groups_");
     match = match || message.reply_message.jid;
-    if (!match) return await message.reply("_Mention user to promote_");
+    if (!match) return await message.treply("_Mention user to promote_");
     let isadmin = await isAdmin(message.jid, message.user, message.client);
-    if (!isadmin) return await message.reply("_I'm not admin_");
+    if (!isadmin) return await message.treply("_I'm not admin_");
     let jid = parsedJid(match);
     await message.promote(jid);
-    return await message.reply(`@${jid[0].split("@")[0]} promoted as admin`, {
+    return await message.treply(`@${jid[0].split("@")[0]} promoted as admin`, {
       mentions: jid,
     });
   }
@@ -125,14 +125,14 @@ async (message, match, m) => {
     
     }, async (message, match, m) => {
     if (!message.isGroup)
-      return await message.reply("_This command is for groups_");
+      return await message.treply("_This command is for groups_");
     match = match || message.reply_message.jid;
-    if (!match) return await message.reply("_Mention user to demote");
+    if (!match) return await message.treply("_Mention user to demote");
     let isadmin = await isAdmin(message.jid, message.user, message.client);
-    if (!isadmin) return await message.reply("_I'm not admin_");
+    if (!isadmin) return await message.treply("_I'm not admin_");
     let jid = parsedJid(match);
     await message.demote(jid);
-    return await message.reply(`@${jid[0].split("@")[0]} demoted from admin`, {
+    return await message.treply(`@${jid[0].split("@")[0]} demoted from admin`, {
       mentions: jid,
     });
   }
@@ -149,10 +149,10 @@ async (message, match, m) => {
     
     }, async (message, match, m) => {
     if (!message.isGroup)
-      return await message.reply("_This command is for groups_");
+      return await message.treply("_This command is for groups_");
     if (!isAdmin(message.jid, message.user, message.client))
-      return await message.reply("_I'm not admin_");
-    await message.reply("_Muting_");
+      return await message.treply("_I'm not admin_");
+    await message.treply("_Muting_");
     return await client.groupSettingUpdate(message.jid, "announcement");
   }
 );
@@ -167,10 +167,10 @@ command({
 
 }, async (message, match, m) => {
     if (!message.isGroup)
-      return await message.reply("_This command is for groups_");
+      return await message.treply("_This command is for groups_");
     if (!isAdmin(message.jid, message.user, message.client))
-      return await message.reply("_I'm not admin_");
-    await message.reply("_Unmuting_");
+      return await message.treply("_I'm not admin_");
+    await message.treply("_Unmuting_");
     return await client.groupSettingUpdate(message.jid, "not_announcement");
   }
 );
@@ -184,18 +184,18 @@ command({
   },
   async (message, match, m, client) => {
     if (!message.isGroup)
-      return await message.reply("_This command is for groups_");
-    if (!match) return message.reply("_Enter time to mute_\nEg : amute 20:10");
+      return await message.treply("_This command is for groups_");
+    if (!match) return message.treply("_Enter time to mute_\nEg : amute 20:10");
 
     if (!isAdmin(message.jid, message.user, message.client))
-      return await message.reply("_I'm not admin_");
-    message.reply(`_Group will mute at ${match}_`);
+      return await message.treply("_I'm not admin_");
+    message.treply(`_Group will mute at ${match}_`);
     await saveSchedule(message.jid, match, async () => {
-      await message.reply("_Muting_");
+      await message.treply("_Muting_");
       return await client.groupSettingUpdate(message.jid, "announcement");
     });
     return cron(match, async () => {
-      await message.reply("_Muting_");
+      await message.treply("_Muting_");
       return await client.groupSettingUpdate(message.jid, "announcement");
     });
   }
@@ -210,19 +210,19 @@ command({
   },
   async (message, match, m, client) => {
     if (!message.isGroup)
-      return await message.reply("_This command is for groups_");
+      return await message.treply("_This command is for groups_");
     if (!match)
-      return message.reply("_Enter time to unmute_\nEg : aunmute 20:10");
+      return message.treply("_Enter time to unmute_\nEg : aunmute 20:10");
 
     if (!isAdmin(message.jid, message.user, message.client))
-      return await message.reply("_I'm not admin_");
-    message.reply(`_Group will unmute at ${match}_`);
+      return await message.treply("_I'm not admin_");
+    message.treply(`_Group will unmute at ${match}_`);
     await saveSchedule(message.jid, match, async () => {
-      await message.reply("_Auto Unmuting_");
+      await message.treply("_Auto Unmuting_");
       return await client.groupSettingUpdate(message.jid, "not_announcement");
     });
     return cron(match, async () => {
-      await message.reply("_Auto Unmuting_");
+      await message.treply("_Auto Unmuting_");
       return await client.groupSettingUpdate(message.jid, "not_announcement");
     });
   }
@@ -237,7 +237,7 @@ command({
   },
   async (message, match, m, client) => {
     if (!message.isGroup)
-      return await message.reply("_This command is for groups_");
+      return await message.treply("_This command is for groups_");
     let { participants } = await client.groupMetadata(message.jid);
     let participant = participants.map((u) => u.id);
     let str = "╭──〔 *Group Jids* 〕\n";
@@ -245,7 +245,7 @@ command({
       str += `├ *${result}*\n`;
     });
     str += `╰──────────────`;
-    message.reply(str);
+    message.treply(str);
   }
 );
 
@@ -296,7 +296,7 @@ command({
        let {prefix} = message
     let [poll,opt] = match.split(";");
     if (match.split(";") < 2)
-      return await message.reply(
+      return await message.treply(
         `${global.prefix}poll question;option1,option2,option3.....`
       );
     

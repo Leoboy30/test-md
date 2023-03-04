@@ -1,6 +1,6 @@
 const fs = require("fs")
 const { writeFile, readFile } = require("fs");
-const { command } = require("../lib");
+const { command, transplate } = require("../lib");
 const Config = require("../database/settings");
 const Heroku = require("heroku-client");
 const heroku = new Heroku({ token: Config.HEROKU_API_KEY });
@@ -18,13 +18,13 @@ command({ pattern: "setsudo ?(.*)",
       return await m.sendMessage("*reply to a number*", { quoted: m });
     var setSudo = (SUDO + "," + newSudo).replace(/,,/g, ",");
     setSudo = setSudo.startsWith(",") ? setSudo.replace(",", "") : setSudo;
-    await message.sendMessage("_new sudo numbers are:" + setSudo+'_', {
+    await message.sendMessage({text: "_new sudo numbers are:" + setSudo+'_'}, {
       quoted: m,
     });
     parsedData.config.SUDO = setSudo
     writeFile('./database/settings.json', JSON.stringify(parsedData, null, 2), (err) => {
      if (err) {
-       return message.client.sendMessage(message.jid, "Failed to Register Data")
+       return message.client.sendMessage(message.jid, {text: transplate("Failed to Register Data")})
       }   
  });
   }
@@ -37,7 +37,7 @@ command({ pattern: "getsudo ?(.*)",
   }, async (message, match, m) => {
     let SUDO = parsedData.config.SUDO
 
-
-    await message.sendMessage("```" + `SUDO Numbers are : ${SUDO}` + "```");
+let r = await transplate(`SUDO Numbers are : ${SUDO}`)
+   return await message.sendMessage('```'+r+'```');
   }
 );

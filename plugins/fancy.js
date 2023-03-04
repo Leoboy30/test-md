@@ -16,9 +16,9 @@ command({
       listall("Fancy").forEach((txt, num) => {
         text += `${(num += 1)} ${txt}\n`;
       });
-      return await message.reply(text);
+      return await message.treply(text);
     } else {
-      message.reply(styletext(message.reply_message.text, parseInt(match)));
+      message.treply(styletext(message.reply_message.text, parseInt(match)));
     }
   }
 );
@@ -28,7 +28,7 @@ command({
     desc: "makes sticker of text.",
     type: "tool",
   }, async (message, match, m) => {
-    if (!message.reply_message || !message.reply_message.text) return await message.reply('Please quote any users message.');
+    if (!message.reply_message || !message.reply_message.text) return await message.treply('Please quote any users message.');
       let pfp;
             try {
                 pfp = await message.client.profilePictureUrl(message.reply_message.participant, "image");
