@@ -267,19 +267,3 @@ message.sendMessage(config.ALIVE)
 })
 
 
-command({
-  pattern: "trum",
-  fromMe: true,
-  desc: "Download TikTok Videos",
-  dontAddCommandList: true,
-  type: "download",
-
-},
-async (message, match, m) => {
-  if(!match) return;
-  return await message.sendFromUrl(
-    `https://ytdl.tiodevhost.my.id/?url=${match}&filter=audioandvideo&quality=highestvideo&contenttype=video/mp4`,
-    { fileName: `AlienAlfa.mp4`, mimetype: "video/mp4" }
-  );
-
-})

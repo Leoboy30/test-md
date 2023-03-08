@@ -171,10 +171,10 @@ command(
             percentage = Math.round((quota_used / total_quota) * 100);
             remaining = total_quota - quota_used;
             await message.send(
-              '```Total Quota```' + ": ```{}```\n\n".format(secondsToHms(total_quota)) +
-              '```Used Quota```'+ ": ```{}```\n".format(secondsToHms(quota_used)) +
-              '```Usage %   ```' + ": ```{}```\n\n".format(percentage) +
-              '```Dyno Left```' + ": ```{}```\n".format(secondsToHms(remaining))
+'```Total Quota```' + ": ```{}```\n\n".format(secondsToHms(total_quota)) +
+'```Used Quota```'+ ": ```{}```\n".format(secondsToHms(quota_used)) +
+'```Usage %   ```' + ": ```{}```\n\n".format(percentage) +
+'```Dyno Left```' + ": ```{}```\n".format(secondsToHms(remaining))
             );
           })
           
@@ -330,6 +330,7 @@ command(
           var app = await heroku.get("/apps/" + process.env.HEROKU_APP_NAME);
         } catch {
           await message.sendMessage("_Invalid Heroku Details_");
+
           await new Promise((r) => setTimeout(r, 1000));
         }
 

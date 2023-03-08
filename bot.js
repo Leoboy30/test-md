@@ -211,7 +211,7 @@ async function AlienAlfa() {
   
   process.on("uncaughtException", (err) => {
     let error = err.message;
-    conn.sendMessage(conn.user.id, { text: error });
+   // conn.sendMessage(conn.user.id, { text: error });
     console.log(err);
   });
 } module.exports = AlienAlfa
